@@ -4757,10 +4757,21 @@ blockquote::before {
   color: var(--text-white-color);
 }
 
+.services__card--icon i {
+  position: relative;
+  z-index: 1;
+  font-size: 2.4rem;
+  color: #ffffff;
+}
+
 @media only screen and (min-width: 992px) {
   .services__card--icon {
     width: 7rem;
     height: 7rem;
+  }
+  
+  .services__card--icon i {
+    font-size: 2.8rem;
   }
 }
 
@@ -4768,6 +4779,10 @@ blockquote::before {
   .services__card--icon {
     width: 9.2rem;
     height: 9.2rem;
+  }
+  
+  .services__card--icon i {
+    font-size: 3.6rem;
   }
 }
 
@@ -4829,6 +4844,7 @@ blockquote::before {
   opacity: 0.26;
   -webkit-transform: translatex(-50%);
           transform: translatex(-50%);
+  z-index: -1;
 }
 
 @media only screen and (min-width: 992px) {
