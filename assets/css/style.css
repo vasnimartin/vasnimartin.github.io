@@ -5744,6 +5744,14 @@ blockquote::before {
   margin-bottom: 0;
 }
 
+.skills__items > span:first-child {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
 .skills__field {
   position: relative;
 }
@@ -5774,20 +5782,32 @@ blockquote::before {
   width: 60%;
 }
 
+.skills__field.width_70::after {
+  width: 70%;
+}
+
 .skills__field.width_75::after {
   width: 75%;
+}
+
+.skills__field.width_80::after {
+  width: 80%;
+}
+
+.skills__field.width_85::after {
+  width: 85%;
 }
 
 .skills__field.width_90::after {
   width: 90%;
 }
 
-.skills__field.width_100::after {
-  width: 100%;
+.skills__field.width_95::after {
+  width: 95%;
 }
 
-.skills__field.width_70::after {
-  width: 70%;
+.skills__field.width_100::after {
+  width: 100%;
 }
 
 .skills__text {
