@@ -1052,28 +1052,186 @@ canvas[id*="neural"] {
   visibility: hidden !important;
 }
 
-/* Remove pulse animation from hero image for performance */
-.hero-ai-glass {
-  animation: none !important;
-}
+/* =========================================
+   PREMIUM 2026 AI DEVELOPER PORTFOLIO
+   ========================================= */
 
-/* Remove 3D neural background images completely - CLEAN LOOK */
+/* Animated Mesh Gradient Background */
 .hero__section--bg,
 .dark .hero__section--bg {
-  background: none !important;
-  background-image: none !important;
+  background: 
+    radial-gradient(ellipse at 20% 80%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(129, 140, 248, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 70%);
+  background-color: var(--body-background-color);
+  animation: meshPulse 8s ease-in-out infinite alternate;
 }
 
-/* Simple, clean section backgrounds */
+@keyframes meshPulse {
+  0% { 
+    background-position: 0% 0%, 100% 100%, 50% 50%; 
+  }
+  100% { 
+    background-position: 20% 30%, 80% 70%, 60% 40%; 
+  }
+}
+
+/* Hero AI Glass - Restored Premium Glow */
+.hero-ai-glass {
+  animation: subtleGlow 4s ease-in-out infinite alternate !important;
+  box-shadow: 
+    0 0 60px rgba(56, 189, 248, 0.3),
+    0 0 120px rgba(129, 140, 248, 0.15) !important;
+}
+
+@keyframes subtleGlow {
+  0% { 
+    box-shadow: 0 0 60px rgba(56, 189, 248, 0.3), 0 0 120px rgba(129, 140, 248, 0.15);
+    filter: brightness(1);
+  }
+  100% { 
+    box-shadow: 0 0 80px rgba(56, 189, 248, 0.4), 0 0 150px rgba(129, 140, 248, 0.2);
+    filter: brightness(1.05);
+  }
+}
+
+/* Floating Tech Icons Animation */
+.logo__positioning {
+  animation: floatIcon 6s ease-in-out infinite;
+}
+
+.logo__positioning.one { animation-delay: 0s; }
+.logo__positioning.two { animation-delay: 1.5s; }
+.logo__positioning.three { animation-delay: 3s; }
+.logo__positioning.four { animation-delay: 4.5s; }
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* 3D Card Tilt on Hover */
+.services__card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+  background: rgba(30, 41, 59, 0.9) !important;
+  border: 1px solid rgba(56, 189, 248, 0.1) !important;
+}
+
+.services__card:hover {
+  transform: translateY(-8px) rotateX(2deg) rotateY(-2deg) !important;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(56, 189, 248, 0.15) !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+}
+
+/* AI Accent - Top Border Glow on Cards */
+.services__card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8, #38bdf8);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.services__card:hover::after {
+  opacity: 1;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Holographic Skill Bars */
+.skills__field.holographic::after {
+  background: linear-gradient(90deg, #38bdf8, #818cf8, #38bdf8) !important;
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* AI Badge Styling */
+.ai-highlight {
+  position: relative;
+}
+
+.ai-highlight::before {
+  content: '🤖';
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+}
+
+/* Light Mode Adaptations */
+:root:not(.dark) .hero__section--bg {
+  background: 
+    radial-gradient(ellipse at 20% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(129, 140, 248, 0.08) 0%, transparent 50%);
+  background-color: #f8fafc;
+}
+
+:root:not(.dark) .services__card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+:root:not(.dark) .services__card:hover {
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 30px rgba(56, 189, 248, 0.1) !important;
+}
+
+/* About Section - Subtle Gradient */
 .about__section--bg {
-  background-image: none !important;
+  background: 
+    radial-gradient(ellipse at 80% 80%, rgba(56, 189, 248, 0.08) 0%, transparent 50%) !important;
 }
 
+/* Contact Section */
 .contact__section--bg {
-  background-image: none !important;
   background: var(--body-background-color) !important;
 }
 
+/* Footer */
 .footer__bg {
-  background-image: none !important;
+  background: var(--body-background-color) !important;
+  border-top: 1px solid rgba(56, 189, 248, 0.1);
+}
+
+/* Hide neural canvas (keep disabled) */
+#neural-canvas,
+.neural-canvas {
+  display: none !important;
+}
+
+/* Premium Typography for Hero */
+.hero__content--title {
+  text-shadow: 0 0 40px rgba(56, 189, 248, 0.3);
+}
+
+/* Stats/Metrics Styling (if added) */
+.stats-number {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stats-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.7;
 }
