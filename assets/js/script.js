@@ -10,19 +10,27 @@
 
 const preLoader = function () {
   let preloaderWrapper = document.getElementById("preloader");
-  window.onload = () => {
-    let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test( navigator.userAgent) ? true : false;
-    if (!isMobile) {
+  
+  // Guaranteed fallback: remove preloader after 2 seconds no matter what
+  const forceRemove = setTimeout(function() {
+    if (preloaderWrapper && preloaderWrapper.parentNode) {
+      preloaderWrapper.classList.add("preloaded");
+      setTimeout(() => preloaderWrapper.remove(), 500);
+    }
+  }, 2000);
+  
+  // Normal load behavior (if it fires first, great - clears the fallback)
+  window.addEventListener("load", () => {
+    clearTimeout(forceRemove); // Cancel fallback if load fires normally
+    if (preloaderWrapper) {
       setTimeout(function () {
         preloaderWrapper.classList.add("preloaded");
       }, 300);
       setTimeout(function () {
         preloaderWrapper.remove();
       }, 1000);
-    } else {
-      preloaderWrapper.remove();
-    }    
-  };
+    }
+  });
 };
 preLoader();
 
@@ -482,5 +490,3 @@ const newsletterPopup = function () {
   }
 };
 newsletterPopup();
-
-

@@ -1,11 +1,10 @@
 /* dark css hrre */
 .dark{
-    --primary-color: #fff;
-    --foreground-color: #fff;
-    --foreground-sub-color: #fff;
-    --body-background-color: rgba(33, 36, 40, 1);
-    --border-color: #000000;
-    
+    --primary-color: var(--text-white-color);
+    --foreground-color: var(--text-white-color);
+    --foreground-sub-color: #cbd5e1;
+    --body-background-color: var(--bg-dark);
+    --border-color: rgba(255,255,255,0.1);
 }
 .dark .sidebar__header{
     background: #000000;

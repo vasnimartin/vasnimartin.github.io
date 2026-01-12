@@ -13,8 +13,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- ======= Google Font: Rubik ======= -->
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+  <!-- ======= Google Fonts: Inter & Space Grotesk ======= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
     rel="stylesheet">
 
   <!-- ======= Vendor CSS ======= -->
@@ -25,6 +28,7 @@
 
   <!-- ======= Custom Styles ======= -->
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/custom-utils.css">
 
   <!-- ======= Dark Theme ======= -->
   <link rel="stylesheet" href="assets/css/dark.css">
@@ -71,12 +75,14 @@
       <div class="container">
         <div class="main__header d-flex justify-content-between align-items-center">
 
-          <!-- Logo (optional, uncomment if needed) -->
-          <!-- <a class="main__logo--link" href="index.html">
-            <img class="logo_light" src="assets/img/logo/nav-log.png" alt="Logo">
-            <img class="logo_dark" src="assets/img/logo/nav-log-white.png" alt="Logo">
-          </a> -->
-
+          <div class="main__logo">
+            <h1 class="main__logo--title">
+              <a class="main__logo--link site-logo" href="index.html">
+                <span class="logo-monogram">VM</span>
+                <span class="logo-text">Vasni<span class="logo-accent">Martin</span></span>
+              </a>
+            </h1>
+          </div>
           <!-- Offcanvas Menu Button -->
           <a class="offcanvas__header--menu__open--btn" href="javascript:void(0)" data-offcanvas aria-label="Open Menu">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -120,8 +126,9 @@
 
     <!-- Logo -->
     <div class="offcanvas__logo">
-      <a class="offcanvas__logo_link" href="index.html">
-        <img src="assets/img/logo/nav-log.png" alt="Logo" width="158" height="36">
+      <a class="offcanvas__logo_link site-logo" href="index.html">
+        <span class="logo-monogram">VM</span>
+        <span class="logo-text">Vasni<span class="logo-accent">Martin</span></span>
       </a>
       <button class="offcanvas__close--btn" data-offcanvas aria-label="Close Menu">✕</button>
     </div>
@@ -161,30 +168,40 @@
   <section class="hero__section hero__section--bg" id="home">
     <div class="container">
       <div class="hero__section--inner d-flex align-items-center">
+        <!-- Neural Background Canvas -->
+        <canvas id="neural-canvas" class="neural-canvas"></canvas>
 
         <!-- Thumbnail -->
         <div class="hero__thumbnail position__relative">
-          <img class="hero__thumbnail--media" src="assets/img/hero/hero-man-dark.jpeg" alt="Hero Image">
+          <img class="hero__thumbnail--media glow-hover hero-ai-glass" src="assets/img/hero/hero-ai-glass.png"
+            alt="Hero Image">
           <span class="logo__positioning one">
             <img src="assets/img/logo/figma-logo.png" alt="Figma Logo">
           </span>
           <span class="logo__positioning two">
             <img src="assets/img/logo/JavaScript-logo.png" alt="JavaScript Logo">
           </span>
+          <span class="logo__positioning three">
+            <img src="assets/img/icon/react.png" alt="React Logo" style="width: 50px; height: auto;">
+          </span>
+          <span class="logo__positioning four">
+            <img src="assets/img/icon/ai.png" alt="AI Logo" style="width: 50px; height: auto;">
+          </span>
         </div>
 
         <!-- Content -->
         <div class="hero__content">
           <span class="hero__content--subtitle text__secondary mb-10">HELLO I'M</span>
-          <h1 class="hero__content--title mb-15">Vasni Martin!</h1>
-          <h2 class="hero__content--subtitle2 mb-20">Sr Software Engineer</h2>
+          <h1 class="hero__content--title mb-15">Vasni Martin</h1>
+          <h2 class="hero__content--subtitle2 mb-20 text-gradient">Senior Software Engineer | Product-Focused Full-Stack
+          </h2>
+          <h3 class="hero__content--subtitle2 mb-20" style="font-size: 1.8rem; opacity: 0.8;">UX-Driven Web & AI Apps |
+            Remote-Ready</h3>
           <p class="hero__content--desc mb-30">
-            I’m a passionate UX Designer focused on creating simple, intuitive, and meaningful digital experiences. I
-            combine user research, thoughtful interaction design, and strong visual storytelling to turn complex
-            problems into clean, user-centered solutions. I care deeply about understanding user needs, improving
-            usability, and designing products that feel effortless and engaging. With a collaborative mindset and a love
-            for creativity, I enjoy shaping experiences that are not only beautiful but truly helpful in people’s
-            everyday lives.
+            I lead features end-to-end, from UX definition and architecture decisions to production delivery, working
+            with distributed teams.
+            I’m a software engineer (9+ years) building modern digital products that solve real user problems with
+            clean, intuitive interfaces and robust engineering.
           </p>
 
           <!-- Footer (buttons + socials) -->
@@ -193,21 +210,48 @@
             <div class="social__share d-flex align-items-center">
               <span class="social__share--title">Follow Me:</span>
               <ul class="social__share--wrapper d-flex">
-                <li><a class="social__share--link" href="https://www.facebook.com/martin.tinku" target="_blank"
-                    aria-label="Facebook">
-                    <i class="fab fa-facebook-f"></i></a></li>
-                <li><a class="social__share--link" href="https://www.linkedin.com/in/vasni-martin" target="_blank"
-                    rel="noopener" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i></a></li>
-                <li><a class="social__share--link" href="https://x.com/IntiltMartin" target="_blank"
+                <li><a class="social__share--link text-white" href="https://www.facebook.com/martin.tinku"
+                    target="_blank" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                  </a></li>
+                <li><a class="social__share--link text-white" href="https://www.linkedin.com/in/vasni-martin"
+                    target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                      <rect x="2" y="9" width="4" height="12"></rect>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                  </a></li>
+                <li><a class="social__share--link text-white" href="https://x.com/IntiltMartin" target="_blank"
                     aria-label="Twitter/X">
-                    <i class="fab fa-x-twitter"></i></a></li>
-                <li><a class="social__share--link" href="https://www.instagram.com/martintinku/" target="_blank"
-                    aria-label="Instagram">
-                    <i class="fab fa-instagram"></i></a></li>
-                <li><a class="social__share--link" href="https://github.com/vasnimartin" target="_blank"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </a></li>
+                <li><a class="social__share--link text-white" href="https://www.instagram.com/martintinku/"
+                    target="_blank" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                  </a></li>
+                <li><a class="social__share--link text-white" href="https://github.com/vasnimartin" target="_blank"
                     aria-label="GitHub">
-                    <i class="fab fa-github"></i></a></li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                      </path>
+                    </svg>
+                  </a></li>
               </ul>
             </div>
           </div>
@@ -227,102 +271,149 @@
     <!-- Heading -->
     <div class="section__heading--topbar d-flex align-items-center justify-content-between mb-50">
       <div class="section__heading max-width-580">
-        <span class="section__heading--subtitle text__secondary">UX EXPERTISE</span>
-        <h2 class="section__heading--title">How I Create Meaningful Digital Experiences</h2>
+        <span class="section__heading--subtitle text__secondary">WHERE I ADD VALUE</span>
+        <h2 class="section__heading--title">Bridging Design, Engineering & AI</h2>
       </div>
     </div>
 
     <!-- Services -->
     <div class="row g-4">
 
-      <!-- UX Research -->
+      <!-- Frontend Delivery -->
       <div class="col-lg-4 col-md-6">
-        <div class="services__card">
+        <div class="services__card glass">
           <span class="services__card--icon color1">
-            <i class="feather icon-search"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-code">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
           </span>
           <div class="services__card--content">
-            <h3 class="services__card--title">UX Research & Insight</h3>
+            <h3 class="services__card--title">Frontend Leadership</h3>
             <p class="services__card--desc">
-              Conduct qualitative and quantitative research to understand user needs, motivations, and behaviors.
+              Lead delivery with Angular, React, and TypeScript. Crafting responsive, accessible, performant UI that
+              feels modern and intuitive.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Define & Strategy -->
+      <!-- UX Alignment -->
       <div class="col-lg-4 col-md-6">
-        <div class="services__card">
+        <div class="services__card glass">
           <span class="services__card--icon color2">
-            <i class="feather icon-target"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-layout">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
           </span>
           <div class="services__card--content">
-            <h3 class="services__card--title">UX Strategy & Problem Framing</h3>
+            <h3 class="services__card--title">UX & Design Systems</h3>
             <p class="services__card--desc">
-              Translate research insights into personas, user journeys, problem statements, and strategic UX direction.
+              Systematic design using Figma for scalable component libraries. Ensuring consistency across Generative AI
+              and Standard workflows.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Interaction Design -->
+      <!-- Backend & Cloud -->
       <div class="col-lg-4 col-md-6">
-        <div class="services__card">
+        <div class="services__card glass">
           <span class="services__card--icon color3">
-            <i class="feather icon-git-branch"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-server">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
           </span>
           <div class="services__card--content">
-            <h3 class="services__card--title">Interaction & Flow Design</h3>
+            <h3 class="services__card--title">Backend & Cloud</h3>
             <p class="services__card--desc">
-              Define user flows, interaction patterns, and navigation logic that make experiences intuitive and
-              seamless.
+              Build scalable APIs (Node.js, Java) and reliable cloud deployments (AWS, Azure) with solid observability.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- UI & Visual Design -->
+      <!-- AI Features -->
       <div class="col-lg-4 col-md-6">
-        <div class="services__card">
+        <div class="services__card glass">
           <span class="services__card--icon color4">
-            <i class="feather icon-layout"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-cpu">
+              <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+              <rect x="9" y="9" width="6" height="6"></rect>
+              <line x1="9" y1="1" x2="9" y2="4"></line>
+              <line x1="15" y1="1" x2="15" y2="4"></line>
+              <line x1="9" y1="20" x2="9" y2="23"></line>
+              <line x1="15" y1="20" x2="15" y2="23"></line>
+              <line x1="20" y1="9" x2="23" y2="9"></line>
+              <line x1="20" y1="14" x2="23" y2="14"></line>
+              <line x1="1" y1="9" x2="4" y2="9"></line>
+              <line x1="1" y1="14" x2="4" y2="14"></line>
+            </svg>
           </span>
           <div class="services__card--content">
-            <h3 class="services__card--title">UI & Visual Experience</h3>
+            <h3 class="services__card--title">AI & Future Features</h3>
             <p class="services__card--desc">
-              Craft elegant, accessible interfaces using design systems, clean typography, spacing, and visual
-              hierarchy.
+              Designing Conversational UIs and RAG-based interactions. Bridging LLMs with intuitive, context-aware user
+              experiences.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Prototyping & Testing -->
+      <!-- Creative -->
       <div class="col-lg-4 col-md-6">
-        <div class="services__card">
+        <div class="services__card glass">
           <span class="services__card--icon color5">
-            <i class="feather icon-mouse-pointer"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-box">
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+              </path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
           </span>
           <div class="services__card--content">
-            <h3 class="services__card--title">Prototyping & Usability Validation</h3>
+            <h3 class="services__card--title">3D & Creative Tech</h3>
             <p class="services__card--desc">
-              Build interactive prototypes, run usability tests, and iterate based on real user feedback and insights.
+              Experiments with Blender and Unreal Engine 5, pushing 3D interactivity beyond the traditional browser
+              screen.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- UX-Engineering Bridge -->
+      <!-- End-to-End -->
       <div class="col-lg-4 col-md-6">
-        <div class="services__card">
+        <div class="services__card glass">
           <span class="services__card--icon color6">
-            <i class="feather icon-layers"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-layers">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
           </span>
           <div class="services__card--content">
-            <h3 class="services__card--title">Design–Engineering Translation</h3>
+            <h3 class="services__card--title">End-to-End Ownership</h3>
             <p class="services__card--desc">
-              Bridge UX with frontend & backend knowledge to ensure polished implementation and maintain design
-              integrity.
+              Leading features from architecture decisions to production delivery, ensuring features drive measurable
+              impact.
             </p>
           </div>
         </div>
@@ -344,7 +435,7 @@
       <div class="about__content">
         <div class="section__heading mb-30">
           <span class="section__heading--subtitle text__secondary">ABOUT ME</span>
-          <h2 class="section__heading--title">Designing the Future of UI/UX</h2>
+          <h2 class="section__heading--title">Architecting Intelligence. designing for Humans.</h2>
         </div>
 
         <div class="about__info">
@@ -366,7 +457,8 @@
       <!-- Thumbnail -->
       <div class="about__thumbnail">
         <div class="about__thumbnail--media position__relative">
-          <img src="assets/img/other/about.png" alt="Profile photo">
+          <img src="assets/img/other/about.png" alt="Profile photo" width="500" height="600"
+            style="width: 100%; height: auto;">
         </div>
         <div class="about__experience text-center">
           <h4 class="about__experience--title title-stroke">9+</h4>
@@ -381,32 +473,86 @@
 <!-- End about section -->
 
 <!-- Start brand section -->
-<ul class="logo-grid">
-  <li class="logo-card">
-    <img src="assets/img/icon/angular-3.svg" alt="Angular" />
-    <span>Angular</span>
-  </li>
-  <li class="logo-card">
-    <img src="assets/img/icon/react.png" alt="React" />
-    <span>React</span>
-  </li>
-  <li class="logo-card">
-    <img src="assets/img/icon/node.png" alt="Node.js" />
-    <span>Node.js</span>
-  </li>
-  <li class="logo-card">
-    <img src="assets/img/icon/figma.png" alt="Figma" />
-    <span>Figma</span>
-  </li>
-  <li class="logo-card">
-    <img src="assets/img/icon/ai.png" alt="AI" />
-    <span>AI</span>
-  </li>
-  <li class="logo-card">
-    <img src="assets/img/icon/aws.png" alt="AWS" />
-    <span>AWS</span>
-  </li>
-</ul>
+<!-- Start brand section: Infinite Tech Stream -->
+<div class="tech-stream-wrapper">
+  <div class="tech-stream-track">
+    <!-- Duplicate logos 2-3 times to ensure seamless infinite scroll -->
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/angular-3.svg" alt="Angular">
+      <span>Angular</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/react.png" alt="React">
+      <span>React</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/node.png" alt="Node.js">
+      <span>Node.js</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/figma.png" alt="Figma">
+      <span>Figma</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/ai.png" style="filter: invert(1);" alt="AI">
+      <span>Gen AI</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/aws.png" alt="AWS">
+      <span>AWS</span>
+    </div>
+    <!-- Duplicate Set 1 -->
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/angular-3.svg" alt="Angular">
+      <span>Angular</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/react.png" alt="React">
+      <span>React</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/node.png" alt="Node.js">
+      <span>Node.js</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/figma.png" alt="Figma">
+      <span>Figma</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/ai.png" style="filter: invert(1);" alt="AI">
+      <span>Gen AI</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/aws.png" alt="AWS">
+      <span>AWS</span>
+    </div>
+    <!-- Duplicate Set 2 -->
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/angular-3.svg" alt="Angular">
+      <span>Angular</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/react.png" alt="React">
+      <span>React</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/node.png" alt="Node.js">
+      <span>Node.js</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/figma.png" alt="Figma">
+      <span>Figma</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/ai.png" style="filter: invert(1);" alt="AI">
+      <span>Gen AI</span>
+    </div>
+    <div class="tech-stream-item">
+      <img src="assets/img/icon/aws.png" alt="AWS">
+      <span>AWS</span>
+    </div>
+  </div>
+</div>
 
 
 <!-- End brand section -->
@@ -437,6 +583,11 @@
                 feedback.</li>
             </ul>
             <p><em>Stack:</em> Figma, UXPin, Balsamiq, Axe, Lighthouse</p>
+            <div class="tech-tags mt-10">
+              <span class="badge-tech">Legacy Modernization</span>
+              <span class="badge-tech">Data Viz</span>
+              <span class="badge-tech">Design Systems</span>
+            </div>
             <span class="resume__date">Dec 2022 – Oct 2024</span>
           </div>
         </div>
@@ -454,6 +605,11 @@
               <li>Optimized UI layouts for large datasets to enhance readability and user efficiency.</li>
             </ul>
             <p><em>Stack:</em> Figma, GPT APIs</p>
+            <div class="tech-tags mt-10">
+              <span class="badge-tech">Generative AI</span>
+              <span class="badge-tech">Conversational UI</span>
+              <span class="badge-tech">Complex Flow</span>
+            </div>
             <span class="resume__date">Dec 2022 – Oct 2024</span>
           </div>
         </div>
@@ -523,59 +679,71 @@
     <div class="skills__section--inner d-flex justify-content-between">
       <!-- Left -->
       <div class="skills__step">
+        <!-- New AI Skills -->
         <div class="skills__items">
-          <span>Figma</span>
-          <span class="skills__count">95%</span>
-          <div class="skills__field width_95"></div>
+          <div class="d-flex justify-content-between">
+            <span>Prompt Engineering (LLM)</span>
+            <span class="skills__count">90%</span>
+          </div>
+          <div class="skills__field width_90 holographic"></div>
         </div>
         <div class="skills__items">
-          <span>UXPin</span>
-          <span class="skills__count">90%</span>
-          <div class="skills__field width_90"></div>
+          <div class="d-flex justify-content-between">
+            <span>AI-Driven UX Patterns</span>
+            <span class="skills__count">85%</span>
+          </div>
+          <div class="skills__field width_85 holographic"></div>
+        </div>
+
+        <!-- Existing Core -->
+        <div class="skills__items">
+          <div class="d-flex justify-content-between">
+            <span>Angular & React</span>
+            <span class="skills__count">95%</span>
+          </div>
+          <div class="skills__field width_95 holographic"></div>
         </div>
         <div class="skills__items">
-          <span>Balsamiq</span>
-          <span class="skills__count">85%</span>
-          <div class="skills__field width_85"></div>
-        </div>
-        <div class="skills__items">
-          <span>Prototyping & Wireframing</span>
-          <span class="skills__count">90%</span>
-          <div class="skills__field width_90"></div>
-        </div>
-        <div class="skills__items">
-          <span>Usability Testing</span>
-          <span class="skills__count">90%</span>
-          <div class="skills__field width_90"></div>
+          <div class="d-flex justify-content-between">
+            <span>Figma & Design Systems</span>
+            <span class="skills__count">95%</span>
+          </div>
+          <div class="skills__field width_95 holographic"></div>
         </div>
       </div>
 
       <!-- Right -->
       <div class="skills__step">
+        <!-- Deep Tech -->
         <div class="skills__items">
-          <span>Accessibility (Axe, WCAG)</span>
-          <span class="skills__count">85%</span>
-          <div class="skills__field width_85"></div>
+          <div class="d-flex justify-content-between">
+            <span>Full-Stack (Node/Python)</span>
+            <span class="skills__count">85%</span>
+          </div>
+          <div class="skills__field width_85 holographic"></div>
         </div>
         <div class="skills__items">
-          <span>Lighthouse</span>
-          <span class="skills__count">85%</span>
-          <div class="skills__field width_85"></div>
+          <div class="d-flex justify-content-between">
+            <span>Cloud & Deployment (AWS)</span>
+            <span class="skills__count">80%</span>
+          </div>
+          <div class="skills__field width_80 holographic"></div>
+        </div>
+
+        <!-- Quality/Process -->
+        <div class="skills__items">
+          <div class="d-flex justify-content-between">
+            <span>Accessibility (WCAG 2.2)</span>
+            <span class="skills__count">90%</span>
+          </div>
+          <div class="skills__field width_90 holographic"></div>
         </div>
         <div class="skills__items">
-          <span>Information Architecture</span>
-          <span class="skills__count">90%</span>
-          <div class="skills__field width_90"></div>
-        </div>
-        <div class="skills__items">
-          <span>Interaction Design</span>
-          <span class="skills__count">90%</span>
-          <div class="skills__field width_90"></div>
-        </div>
-        <div class="skills__items">
-          <span>3D Visualization (ThreeJS)</span>
-          <span class="skills__count">80%</span>
-          <div class="skills__field width_80"></div>
+          <div class="d-flex justify-content-between">
+            <span>3D Visualization (ThreeJS/Blender)</span>
+            <span class="skills__count">75%</span>
+          </div>
+          <div class="skills__field width_75 holographic"></div>
         </div>
       </div>
     </div>
@@ -601,10 +769,14 @@
         <button class="filters__button--items button" data-filter=".development">Development</button>
         <!-- <button class="filters__button--items button" data-filter=".mobile">Mobile</button> -->
       </div>
-      <div class="portfolio__grid mb--n30">
+      <div class="portfolio__grid mb--n30 portfolio-container-hover">
         <div class="element-item web" data-category="web">
           <div class="portfolio__card">
-            <a href="#" class="popup-modal--open display-block" data-bs-toggle="modal" data-bs-target="#portfolioModal">
+            <a href="#" class="portfolio-modal-trigger display-block" data-bs-toggle="modal"
+              data-target="#portfolioModal" data-title="Toola Finance" data-subtitle="Fintech Web App"
+              data-desc="An AI-powered accounting application designed to automate financial processes. Features include automated bookkeeping, invoice processing, and real-time financial insights."
+              data-img="assets/img/other/portfolio1.jpg" data-client="Toola Inc." data-tech="React, Node.js, AWS"
+              data-link="https://toola.in/">
               <div class="portfolio__image--card">
                 <img src="assets/img/other/portfolio1.jpg" alt="img">
               </div>
@@ -625,7 +797,11 @@
         </div>
         <div class="element-item graphics" data-category="graphics">
           <div class="portfolio__card">
-            <a href="#" class="popup-modal--open display-block" data-bs-toggle="modal" data-bs-target="#portfolioModal">
+            <a href="#" class="portfolio-modal-trigger display-block" data-bs-toggle="modal"
+              data-target="#portfolioModal" data-title="MS Beyond" data-subtitle="Brand Identity"
+              data-desc="A comprehensive branding and identity project for MS Beyond, focusing on modern aesthetics and digital presence."
+              data-img="assets/img/other/portfolio2.jpg" data-client="MS Beyond" data-tech="Adobe CC, Figma"
+              data-link="#">
               <div class="portfolio__image--card">
                 <img src="assets/img/other/portfolio2.jpg" alt="img">
               </div>
@@ -646,7 +822,11 @@
         </div>
         <div class="element-item development" data-category="development">
           <div class="portfolio__card">
-            <a href="#" class="popup-modal--open display-block" data-bs-toggle="modal" data-bs-target="#portfolioModal">
+            <a href="#" class="portfolio-modal-trigger display-block" data-bs-toggle="modal"
+              data-target="#portfolioModal" data-title="XpressTour" data-subtitle="Travel Booking Platform"
+              data-desc="A full-stack travel booking platform allowing users to book tours, hotels, and flights seamlessly."
+              data-img="assets/img/other/portfolio3.jpg" data-client="XpressTour" data-tech="Angular, Node.js"
+              data-link="#">
               <div class="portfolio__image--card">
                 <img src="assets/img/other/portfolio3.jpg" alt="img">
               </div>
@@ -667,7 +847,11 @@
         </div>
         <div class="element-item development" data-category="development">
           <div class="portfolio__card">
-            <a href="#" class="popup-modal--open display-block" data-bs-toggle="modal" data-bs-target="#portfolioModal">
+            <a href="#" class="portfolio-modal-trigger display-block" data-bs-toggle="modal"
+              data-target="#portfolioModal" data-title="IBZA" data-subtitle="E-Commerce Solution"
+              data-desc="A robust e-commerce platform with a custom CMS, payment gateway integration, and real-time inventory management."
+              data-img="assets/img/other/portfolio4.jpg" data-client="IBZA Retail" data-tech="Vue.js, Firebase"
+              data-link="#">
               <div class="portfolio__image--card">
                 <img src="assets/img/other/portfolio4.jpg" alt="img">
               </div>
@@ -688,7 +872,11 @@
         </div>
         <div class="element-item web" data-category="web">
           <div class="portfolio__card">
-            <a href="#" class="popup-modal--open display-block" data-bs-toggle="modal" data-bs-target="#portfolioModal">
+            <a href="#" class="portfolio-modal-trigger display-block" data-bs-toggle="modal"
+              data-target="#portfolioModal" data-title="DTCC Dashboard" data-subtitle="Financial Data Visualization"
+              data-desc="A complex data visualization dashboard designed to simplify financial reporting and legacy workflows."
+              data-img="assets/img/other/portfolio5.jpg" data-client="DTCC" data-tech="HighCharts, Angular"
+              data-link="#">
               <div class="portfolio__image--card">
                 <img src="assets/img/other/portfolio5.jpg" alt="img">
               </div>
@@ -709,7 +897,11 @@
         </div>
         <div class="element-item graphics" data-category="graphics">
           <div class="portfolio__card">
-            <a href="#" class="popup-modal--open display-block" data-bs-toggle="modal" data-bs-target="#portfolioModal">
+            <a href="#" class="portfolio-modal-trigger display-block" data-bs-toggle="modal"
+              data-target="#portfolioModal" data-title="Toshiba Identity" data-subtitle="Corporate Branding"
+              data-desc="Refreshed corporate identity assets including digital banners, print collateral, and presentation templates."
+              data-img="assets/img/other/portfolio6.jpg" data-client="Toshiba" data-tech="Illustrator, InDesign"
+              data-link="#">
               <div class="portfolio__image--card">
                 <img src="assets/img/other/portfolio6.jpg" alt="img">
               </div>
@@ -723,7 +915,7 @@
                     </path>
                   </svg>
                 </span>
-                <h3 class="portfolio__title text-white">Thoshiba</h3>
+                <h3 class="portfolio__title text-white">Toshiba</h3>
               </div>
             </a>
           </div>
@@ -731,7 +923,11 @@
 
         <div class="element-item graphics" data-category="graphics">
           <div class="portfolio__card">
-            <a href="#" class="popup-modal--open display-block" data-bs-toggle="modal" data-bs-target="#portfolioModal">
+            <a href="#" class="portfolio-modal-trigger display-block" data-bs-toggle="modal"
+              data-target="#portfolioModal" data-title="Tork App Design" data-subtitle="Mobile UI/UX"
+              data-desc="User interface design for the Tork mobile application, focusing on ease of use and accessibility."
+              data-img="assets/img/other/portfolio7.png" data-client="Tork" data-tech="Figma, Prototyping"
+              data-link="#">
               <div class="portfolio__image--card">
                 <img src="assets/img/other/portfolio7.png" alt="img">
               </div>
@@ -751,11 +947,16 @@
           </div>
         </div>
 
-        <div class="element-item ai" data-category="ai">
+        <div class="element-item ai featured-ai-item" data-category="ai">
           <div class="portfolio__card">
-            <a href="#" class="popup-modal--open display-block" data-bs-toggle="modal" data-bs-target="#torkModal">
+            <div class="ai-badge">AI POWERED</div>
+            <a href="#" class="portfolio-modal-trigger display-block" data-bs-toggle="modal"
+              data-target="#portfolioModal" data-title="Tork AI Agent" data-subtitle="Generative AI"
+              data-desc="Advanced AI Agent utilizing LLMs for automated customer support and contextual reasoning."
+              data-img="assets/img/other/portfolio9.png" data-client="Self-Project"
+              data-tech="Python, OpenAI, LangChain" data-link="#">
               <div class="portfolio__image--card">
-                <img src="assets/img/other/portfolio9.png" alt="Tork AI Agent">
+                <img src="assets/img/other/portfolio9.png" class="featured-ai-img" alt="Tork AI Agent">
               </div>
               <div class="portfolio__content">
                 <span class="portfolio__zoom text-white">
@@ -774,7 +975,11 @@
 
         <div class="element-item graphics" data-category="graphics">
           <div class="portfolio__card">
-            <a href="#" class="popup-modal--open display-block" data-bs-toggle="modal" data-bs-target="#portfolioModal">
+            <a href="#" class="portfolio-modal-trigger display-block" data-bs-toggle="modal"
+              data-target="#portfolioModal" data-title="Ms Beyond" data-subtitle="Brand Identity"
+              data-desc="A comprehensive branding and identity project for MS Beyond, focusing on modern aesthetics and digital presence."
+              data-img="assets/img/other/portfolio8.png" data-client="MS Beyond" data-tech="Adobe CC, Figma"
+              data-link="#">
               <div class="portfolio__image--card">
                 <img src="assets/img/other/portfolio8.png" alt="img">
               </div>
@@ -801,88 +1006,10 @@
 <!-- End portfolio section -->
 
 <!-- Start testimonial section -->
-<!-- <section class="testimonial__section section--padding position__relative">
-            <div class="container">
-                <div class="section__heading text-center mb-50">
-                    <span class="section__heading--subtitle text__secondary">TESTIMONIALS</span>
-                    <h2 class="section__heading--title">We are people say me</h2> 
-                </div>
-                <div class="testimonial__inner testimonial__swiper--activation swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="testimonial__items text-center">
-                                <div class="testimonial__content mb-30">
-                                    <ul class="rating__wrapper d-flex justify-content-center">
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                    </ul>   
-                                     <p class="testimonial__desc">“We understand the importance of approaching each work integrally and believe in the power of simple and we
-                                        say easy cation growth.</p>
-                                </div>
-                                <div class="testimonial__author">
-                                    <img class="testimonial__author--media" src="assets/img/other/testimonial-author-thumb.png" alt="img">
-                                    <h3 class="testimonial__author--title">Romes Barson</h3>
-                                    <span class="testimonial__author--subtitle">Manager</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testimonial__items text-center">
-                                <div class="testimonial__content mb-30">
-                                    <ul class="rating__wrapper d-flex justify-content-center">
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                    </ul>   
-                                     <p class="testimonial__desc">“We understand the importance of approaching each work integrally and believe in the power of simple and we
-                                        say easy cation growth.</p>
-                                </div>
-                                <div class="testimonial__author">
-                                    <img class="testimonial__author--media" src="assets/img/other/testimonial-author-thumb.png" alt="img">
-                                    <h3 class="testimonial__author--title">Romes Barson</h3>
-                                    <span class="testimonial__author--subtitle">Manager</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testimonial__items text-center">
-                                <div class="testimonial__content mb-30">
-                                    <ul class="rating__wrapper d-flex justify-content-center">
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                        <li class="rating__list"><span class="rating__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></li>
-                                    </ul>   
-                                     <p class="testimonial__desc">“We understand the importance of approaching each work integrally and believe in the power of simple and we
-                                        say easy cation growth.</p>
-                                </div>
-                                <div class="testimonial__author">
-                                    <img class="testimonial__author--media" src="assets/img/other/testimonial-author-thumb.png" alt="img">
-                                    <h3 class="testimonial__author--title">Romes Barson</h3>
-                                    <span class="testimonial__author--subtitle">Manager</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial__pagination swiper-pagination"></div>
-                </div>
-            </div>
-            <span class="testimonial__position--icon left">
-                <svg width="260" height="260" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z"></path></svg>
-            </span>
-            <span class="testimonial__position--icon right">
-                <svg width="260" height="260" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448 296c0 66.3-53.7 120-120 120h-8c-17.7 0-32-14.3-32-32s14.3-32 32-32h8c30.9 0 56-25.1 56-56v-8H320c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v32 32 72zm-256 0c0 66.3-53.7 120-120 120H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h8c30.9 0 56-25.1 56-56v-8H64c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v32 32 72z"></path></svg>
-            </span>
-        </section>
-  
 
-        <-- Start contact section -->
+
+
+<!-- Start contact section -->
 <section class="contact__section contact__section--bg" id="contact">
   <div class="container">
     <div class="row align-items-center">
@@ -973,73 +1100,15 @@
   <div class="container">
     <iframe class="contact__map--iframe"
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d440952.62938933255!2d-98.06262572815929!3d30.295700873317703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1740120215455!5m2!1sen!2sus"
-      width="600" height="450" style="border:0;" allowfullscreen=" style=" border:0;" allowfullscreen=""
-      loading="lazy"></iframe>
+      width="600" height="450" style="border:0;" allowfullscreen loading="lazy">
+    </iframe>
+
   </div>
 </div>
 <!-- End contact map area -->
 
 <!-- Start blog section -->
-<!-- <section class="blog__section section--padding" id="blog">
-            <div class="container">
-                <div class="section__heading--topbar d-flex align-items-center justify-content-between mb-50">
-                    <div class="section__heading max-width-580">
-                        <span class="section__heading--subtitle text__secondary">LATEST BLOGS</span>
-                        <h2 class="section__heading--title">Blog Latest of News 
-                            tricks & Updates</h2> 
-                    </div>
-                    <div class="section__heading--right max-width-450">
-                        <p class="section__heading--desc"></p>
-                    </div>
-                </div>
-                <div class="blog__section--inner">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <article class="blog__card">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#blogModal">
-                                    <div class="blog__card--thumbnail">
-                                        <img src="assets/img/blog/blog1.png" alt="img">
-                                    </div>
-                                    <div class="blog__card--content">
-                                        <span class="blog__card--tag">UI /UX DESIGN</span>
-                                        <h3 class="blog__card--title mb-12">Angular team welarges to trequests blog</h3>
-                                        <p class="blog__card--desc">Lorem ipsum dolor sit amet,elit, sed do eiusmod tempor incididunt ut labore et dolore aliqu</p>
-                                    </div>
-                                </a>
-                            </article>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <article class="blog__card">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#blogModal">
-                                    <div class="blog__card--thumbnail">
-                                        <img src="assets/img/blog/blog2.png" alt="img">
-                                    </div>
-                                    <div class="blog__card--content">
-                                        <span class="blog__card--tag">HTML AND CSS</span>
-                                        <h3 class="blog__card--title mb-12">How to create a website using html</h3>
-                                        <p class="blog__card--desc">Lorem ipsum dolor sit amet,elit, sed do eiusmod tempor incididunt ut labore et dolore aliqu</p>
-                                    </div>
-                                </a>
-                            </article>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <article class="blog__card">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#blogModal">
-                                    <div class="blog__card--thumbnail">
-                                        <img src="assets/img/blog/blog3.png" alt="img">
-                                    </div>
-                                    <div class="blog__card--content">
-                                        <span class="blog__card--tag">Shopify</span>
-                                        <h3 class="blog__card--title mb-12">We mack team welarges to trequests blog</h3>
-                                        <p class="blog__card--desc">Lorem ipsum dolor sit amet,elit, sed do eiusmod tempor incididunt ut labore et dolore aliqu</p>
-                                    </div>
-                                </a>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
+
 <!-- End blog section -->
 
 <!-- Start footer section -->
@@ -1066,53 +1135,9 @@
 
 </main>
 
-<!-- <div class="modal fade" id="portfolioModal" tabindex="-1" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered portfolio__modal--dialog">
-          <div class="modal-content modal-content-height">
-            <button type="button" class="btn-close portfolio__modal--colse" data-bs-dismiss="modal" aria-label="Close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
-            <div class="modal-body portfolio__modal--body">
-                <h2 class="portfolio__modal--title text-center mb-30">Toola Project</h2>
-                <div class="portfolio__modal--info d-flex align-items-center mb-20">
-                    <div class="portfolio__modal--info--list">
-                        <p class="portfolio__modal--info--text">
-                            <span class="portfolio__modal--info__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></span>
-                            Project :
-                            <span class="portfolio__modal--info__name">Application</span>
-                        </p>
-                        <p class="portfolio__modal--info--text">
-                            <span class="portfolio__modal--info__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-code"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></span>
-                            Languages :
-                            <span class="portfolio__modal--info__name">Figma</span>
-                        </p>
-                    </div>
-                    <div class="portfolio__modal--info--list">
-                        <p class="portfolio__modal--info--text">
-                            <span class="portfolio__modal--info__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>
-                            Client :
-                            <span class="portfolio__modal--info__name">Zenflow</span>
-                        </p>
-                        <p class="portfolio__modal--info--text">
-                            <span class="portfolio__modal--info__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></span>
-                            Preview :
-                            <a class="portfolio__modal--info__name" href="https://www.figma.com/design/xdjrdFYPJCDcaPcct9LU69/Toola-Accounting-website?node-id=0-1&p=f&t=Rb8t8UiExaiRxyZ1-0" target="_blank" rel="noopener noreferrer">https://toola.in/</a>
-                        </p>
-                    </div>
-                </div>
-                <p class="portfolio__modal--info__desc mb-30">Toola is an AI-powered accounting application designed in Figma and developed into a functional web solution. It automates financial processes, enhances accuracy, and simplifies bookkeeping through an intuitive UX/UI design and seamless AI integration. 
-                </p>
-                <div class="portfolio__modal--info__media">
-                    <img src="assets/img/other/portfolio-big1.png.jpg" alt="img">
-                </div>
-            </div>
-          </div>
-        </div>
-    </div> -->
-
-<div class="modal fade" id="blogModal" tabindex="-1" style="display: none;" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered blog__modal--dialog">
-    <div class="modal-content modal-content-height">
+<div class="modal fade" id="portfolioModal" tabindex="-1" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered portfolio__modal--dialog">
+    <div class="modal-content modal-content-height glass-hud">
       <button type="button" class="btn-close portfolio__modal--colse" data-bs-dismiss="modal" aria-label="Close">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -1121,128 +1146,73 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <div class="modal-body blog__modal--body">
-        <div class="blog__details--media mb-30">
-          <img src="assets/img/blog/blog-details-1.png" alt="img">
-        </div>
-        <div class="blog__details--content mb-30">
-          <h2 class="blog__details--title mb-20">Angular team welarges to trequests blog</h2>
-          <p class="blog__details--desc">It is a long established fact that a reader will be distracted by
-            the readable content of a page is when looking at its layout. The point of using Lorem Ipsum
-            is that it has a more-or-less normal distribution of letters, as opposed to using ique
-            maiestatis sum quod sum ut alienum nec et to summo possim persequeris vix mea. Adhuc quodsi
-            qui, sit no tale essent electramei sum sums rodesset in pro, quo scripta feugait vidisse.
-            Lorem ipsum dolor sit amet, eu duo ferri labor dicat Mea ex modo reque senserit, et sed hinc
-            dolor, scaevola sum salutandi expetendis vix ne his quod mundi consequat sum. There are not
-            many of passages of lorem</p>
-          <p class="blog__details--desc">It is a long established fact that a reader will be distracted by
-            the readable content of a page is when looking at its layout. The point of using Lorem Ipsum
-            is that it has a more-or-less normal distribution of letters,</p>
-          <blockquote>
-            <svg class="blockquote__svg" aria-hidden="true" viewBox="0 0 24 27" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
-                fill="currentColor"></path>
-            </svg>
-            <p class="blockquote__desc">"Tailwind css is just awesome. It contains tons of predesigned
-              components and pages starting from login screen to complex dashboard. Perfect choice for
-              your next SaaS application."</p>
-          </blockquote>
-        </div>
-        <div class="comment__box">
-          <div class="reviews__comment--area2 mb-30">
-            <h2 class="blog__comment--title style2 mb-30">Recent Comment</h2>
-            <div class="reviews__comment--inner">
-              <div class="reviews__comment--list d-flex">
-                <div class="reviews__comment--thumb">
-                  <img src="assets/img/other/comment-thumb1.webp" alt="comment-thumb">
-                </div>
-                <div class="reviews__comment--content ">
-                  <div class="reviews__comment--top d-flex justify-content-between">
-                    <div class="reviews__comment--top__left">
-                      <h3 class="reviews__comment--content__title">Jakes on</h3>
-                      <span class="reviews__comment--content__date2">December 02, 2023</span>
-                    </div>
-                    <button class="comment__reply--btn primary__btn">Reply</button>
-                  </div>
-                  <p class="reviews__comment--content__desc">Lorem ipsum, dolor sit amet
-                    consectetur adipisicing elit. Eos ex repellat officiis neque. Veniam, rem
-                    nesciunt. Assumenda distinctio, autem error repellat eveniet ratione dolor
-                    facilis accusantium amet pariatur, non eius!</p>
-                </div>
-              </div>
-              <div class="reviews__comment--list margin__left d-flex">
-                <div class="reviews__comment--thumb">
-                  <img src="assets/img/other/comment-thumb2.webp" alt="comment-thumb">
-                </div>
-                <div class="reviews__comment--content ">
-                  <div class="reviews__comment--top d-flex justify-content-between">
-                    <div class="reviews__comment--top__left">
-                      <h3 class="reviews__comment--content__title">Laura Johnson</h3>
-                      <span class="reviews__comment--content__date2">December 02, 2023</span>
-                    </div>
-                    <button class="comment__reply--btn primary__btn">Reply</button>
-                  </div>
-                  <p class="reviews__comment--content__desc">Lorem ipsum, dolor sit amet
-                    consectetur adipisicing elit. Eos ex repellat officiis neque. Veniam, rem
-                    nesciunt. Assumenda distinctio, autem error repellat eveniet ratione dolor
-                    facilis accusantium amet pariatur, non eius!</p>
-                </div>
-              </div>
-              <div class="reviews__comment--list d-flex">
-                <div class="reviews__comment--thumb">
-                  <img src="assets/img/other/comment-thumb3.webp" alt="comment-thumb">
-                </div>
-                <div class="reviews__comment--content ">
-                  <div class="reviews__comment--top d-flex justify-content-between">
-                    <div class="reviews__comment--top__left">
-                      <h3 class="reviews__comment--content__title">Richard Smith</h3>
-                      <span class="reviews__comment--content__date2">December 02, 2023</span>
-                    </div>
-                    <button class="comment__reply--btn primary__btn">Reply</button>
-                  </div>
-                  <p class="reviews__comment--content__desc">Lorem ipsum, dolor sit amet
-                    consectetur adipisicing elit. Eos ex repellat officiis neque. Veniam, rem
-                    nesciunt. Assumenda distinctio, autem error repellat eveniet ratione dolor
-                    facilis accusantium amet pariatur, non eius!</p>
-                </div>
-              </div>
-            </div>
+      <div class="modal-body portfolio__modal--body">
+        <h2 class="portfolio__modal--title text-center mb-30">Toola Project</h2>
+        <div class="portfolio__modal--info d-flex align-items-center mb-20">
+          <div class="portfolio__modal--info--list">
+            <p class="portfolio__modal--info--text">
+              <span class="portfolio__modal--info__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="24"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" class="feather feather-file-text">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg></span>
+              Project :
+              <span class="portfolio__modal--info__name">Application</span>
+            </p>
+            <p class="portfolio__modal--info--text">
+              <span class="portfolio__modal--info__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="24"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" class="feather feather-code">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg></span>
+              Languages :
+              <span class="portfolio__modal--info__name">Figma</span>
+            </p>
           </div>
-          <div class="reviews__comment--reply__area">
-            <form action="#">
-              <h2 class="blog__comment--title mb-30">Leave A Comment</h2>
-              <div class="row">
-                <div class="col-lg-4 col-md-6 mb-20">
-                  <label>
-                    <input class="reviews__comment--reply__input" placeholder="Your Name...." type="text">
-                  </label>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-20">
-                  <label>
-                    <input class="reviews__comment--reply__input" placeholder="Your Email...." type="email">
-                  </label>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-20">
-                  <label>
-                    <input class="reviews__comment--reply__input" placeholder="Your Website...." type="text">
-                  </label>
-                </div>
-                <div class="col-12 mb-15">
-                  <textarea class="reviews__comment--reply__textarea" placeholder="Your Comments...."></textarea>
-                </div>
-
-              </div>
-              <button class="blog__comment--btn primary__btn" data-hover="Submit" type="submit">Post
-                Comment</button>
-            </form>
+          <div class="portfolio__modal--info--list">
+            <p class="portfolio__modal--info--text">
+              <span class="portfolio__modal--info__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="24"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" class="feather feather-user">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg></span>
+              Client :
+              <span class="portfolio__modal--info__name">Zenflow</span>
+            </p>
+            <p class="portfolio__modal--info--text">
+              <span class="portfolio__modal--info__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="24"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" class="feather feather-external-link">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg></span>
+              Preview :
+              <a class="portfolio__modal--info__name"
+                href="https://www.figma.com/design/xdjrdFYPJCDcaPcct9LU69/Toola-Accounting-website?node-id=0-1&p=f&t=Rb8t8UiExaiRxyZ1-0"
+                target="_blank" rel="noopener noreferrer">https://toola.in/</a>
+            </p>
           </div>
+        </div>
+        <p class="portfolio__modal--info__desc mb-30">Toola is an AI-powered accounting application designed in Figma
+          and developed into a functional web solution. It automates financial processes, enhances accuracy, and
+          simplifies bookkeeping through an intuitive UX/UI design and seamless AI integration.
+        </p>
+        <div class="portfolio__modal--info__media">
+          <img src="assets/img/other/portfolio-big1.png.jpg" alt="img">
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
 
 
 
@@ -1258,12 +1228,75 @@
 <script src="assets/js/plugins/swiper-bundle.min.js"></script>
 <script src="assets/js/plugins/isotope.pkgd.min.js"></script>
 <script src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
+<!-- Neural Particles - DISABLED FOR PERFORMANCE -->
+<!-- <script src="assets/js/neural-particles.js" defer></script> -->
 
 <!-- Customscript js -->
 <script src="assets/js/script.js"></script>
 
 <!-- Dark to light js -->
 <script>
+  // Dynamic Portfolio Modal Script
+  document.addEventListener('click', function (e) {
+    // Check if clicked element or its parent is our trigger
+    const button = e.target.closest('.portfolio-modal-trigger');
+    if (button) {
+      e.preventDefault(); // Prevent default link behavior
+
+      const portfolioModal = document.getElementById('portfolioModal');
+      if (!portfolioModal) return;
+
+      // Extract info
+      const title = button.getAttribute('data-title');
+      const subtitle = button.getAttribute('data-subtitle');
+      const desc = button.getAttribute('data-desc');
+      const img = button.getAttribute('data-img');
+      const client = button.getAttribute('data-client');
+      const tech = button.getAttribute('data-tech');
+      const link = button.getAttribute('data-link');
+
+      // Update content
+      const modalTitle = portfolioModal.querySelector('.portfolio__modal--title');
+      const modalDesc = portfolioModal.querySelector('.portfolio__modal--info__desc');
+      const modalImg = portfolioModal.querySelector('.portfolio__modal--info__media img');
+
+      // Helper to update text safely
+      const updateText = (el, text) => { if (el) el.textContent = text; };
+
+      updateText(modalTitle, title);
+      updateText(modalDesc, desc);
+      if (modalImg) modalImg.src = img;
+
+      // These might need specific selectors if they don't have unique classes
+      const infoNames = portfolioModal.querySelectorAll('.portfolio__modal--info__name');
+      if (infoNames.length >= 2) {
+        updateText(infoNames[0], tech); // 1st is Tech
+        updateText(infoNames[1], client); // 2nd is Client
+      }
+
+      const modalLink = portfolioModal.querySelector('a.portfolio__modal--info__name');
+      if (modalLink) {
+        modalLink.href = link;
+        modalLink.textContent = (!link || link === '#') ? 'View Case Study' : link;
+      }
+
+      // Manual Bootstrap Modal Toggle (works for BS4 and BS5)
+      // If jQuery is available (common in these themes), use it for reliability
+      if (typeof $ !== 'undefined' && $('#portfolioModal').modal) {
+        $('#portfolioModal').modal('show');
+      } else {
+        // Fallback: try to find the standard bootstrap instance
+        // Assuming BS5 syntax if jQuery fails
+        try {
+          var myModal = new bootstrap.Modal(document.getElementById('portfolioModal'));
+          myModal.show();
+        } catch (e) {
+          console.error("Bootstrap modal failed to load", e);
+        }
+      }
+    }
+  });
+
   // On page load or when changing themes, best to add inline in `head` to avoid FOUC
   if (localStorage.getItem("theme-color") === "dark" || (!("theme-color" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
     document.getElementById("light__to--dark")?.classList.add("dark--version");

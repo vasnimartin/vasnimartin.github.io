@@ -1,0 +1,1079 @@
+
+/* Utility Classes for 2026 Design */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-hover:hover {
+  box-shadow: var(--glow-shadow);
+  transform: translateY(-2px);
+}
+
+/* Glassmorphism Card Styles */
+.services__card.glass {
+  background: rgba(255, 255, 255, 0.03); /* Extremely subtle bg for dark mode feel */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Very thin border */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy spring feel */
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Gradient Stroke on Hover */
+.services__card.glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.services__card.glass:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(56, 189, 248, 0.15); /* Electric blue glow */
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.services__card.glass .services__card--title {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.services__card.glass .services__card--icon {
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border-radius: 12px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  transition: all 0.4s ease;
+}
+
+/* Portfolio Interactions */
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.portfolio-container-hover:hover .element-item {
+  opacity: 0.4;
+  filter: grayscale(1) blur(2px);
+  transition: all 0.4s ease;
+}
+
+.portfolio-container-hover .element-item:hover {
+  opacity: 1;
+  filter: grayscale(0) blur(0);
+  transform: scale(1.03);
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+}
+
+/* Feature AI Item (Span 2 columns) */
+@media (min-width: 992px) {
+  .element-item.featured-ai-item {
+    grid-column: span 2;
+  }
+}
+
+/* AI Badge */
+.ai-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ai-badge::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: #38bdf8;
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* AI Featured Image */
+.featured-ai-img {
+  height: 400px;
+  object-fit: cover !important;
+}
+
+/* Futuristic HUD Modal */
+.modal-content.glass-hud {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 50px rgba(56, 189, 248, 0.15);
+  color: #fff;
+}
+
+.glass-hud .portfolio__modal--title {
+  font-family: var(--heading-font);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  
+  .header__sticky {
+    width: 95%;
+    top: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  /* Disable hover hover effects on touch devices to prevent sticky hover states */
+  .services__card.glass:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .hero-ai-glass {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Premium Typography & Readability */
+.services__card.glass h3 {
+  letter-spacing: -0.5px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.services__card.glass p {
+  color: #e2e8f0; /* Lighter gray for better contrast on dark glass */
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.section__heading--subtitle {
+  letter-spacing: 2px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* Dark Mode Glass Polish */
+.dark .services__card.glass {
+  background: rgba(15, 23, 42, 0.6); /* Slightly more opaque */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Floating Logos Positioning */
+.logo__positioning {
+  position: absolute;
+  z-index: 2;
+  animation: float-logo 6s ease-in-out infinite;
+}
+.logo__positioning.three {
+  top: 10%;
+  right: 0%;
+  animation-delay: 1s;
+}
+.logo__positioning.four {
+  bottom: 10%;
+  left: 0%;
+  animation-delay: 2s;
+}
+
+@keyframes float-logo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Social Share Icons Glow */
+.social__share--link svg {
+  transition: all 0.3s ease;
+}
+.social__share--link:hover svg {
+  color: #38bdf8; /* Electric Blue */
+  filter: drop-shadow(0 0 5px #38bdf8);
+  transform: translateY(-3px);
+}
+.social__share--link[aria-label="Facebook"]:hover svg { color: #1877F2; filter: drop-shadow(0 0 5px #1877F2); }
+.social__share--link[aria-label="LinkedIn"]:hover svg { color: #0077b5; filter: drop-shadow(0 0 5px #0077b5); }
+.social__share--link[aria-label="Twitter/X"]:hover svg { color: #fff; filter: drop-shadow(0 0 5px #fff); }
+.social__share--link[aria-label="Instagram"]:hover svg { color: #E1306C; filter: drop-shadow(0 0 5px #E1306C); }
+.social__share--link[aria-label="GitHub"]:hover svg { color: #6e5494; filter: drop-shadow(0 0 5px #6e5494); }
+
+.hero__content--subtitle2 {
+    font-weight: 500;
+}
+
+/* =========================================
+   SPRINT 4 EXTRA: PREMIUM HEADER UPGRADE
+   ========================================= */
+
+/* 1. floating Command Center State (Always Floating) */
+.header__sticky.sticky, 
+.header__sticky {
+    top: 1rem !important; /* Always floating from top */
+    width: 95% !important;
+    max-width: 1200px !important;
+    border-radius: 50px !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: rgba(15, 23, 42, 0.7) !important; /* Deep Premium Dark */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    box-shadow: 
+        0 4px 30px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important; /* Top Light Edge */
+    margin: 0 auto;
+    left: 0; 
+    right: 0;
+}
+
+/* 2. Premium Nav Links */
+.header__menu--link {
+    position: relative;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.header__menu--link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    background: linear-gradient(90deg, #38bdf8, #f472b6);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+.header__menu--link:hover::after {
+    width: 80%;
+}
+
+.header__menu--link:hover {
+    color: #fff !important;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* 3. Button Polish: Neon Gradient */
+.primary__btn, .download__btn {
+    background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 100%) !important;
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: #fff !important;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    border-radius: 50px !important;
+    transition: all 0.3s ease !important;
+    font-weight: 600 !important;
+}
+
+.primary__btn::before, .download__btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, #3b82f6 0%, #f472b6 100%);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.primary__btn:hover::before, .download__btn:hover::before {
+    opacity: 1;
+}
+
+.primary__btn:hover, .download__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+}
+
+.glass-hud .portfolio__modal--info--text {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+
+.glass-hud .btn-close {
+  filter: invert(1);
+  opacity: 0.8;
+}
+
+.glass-hud .portfolio__modal--info__icon {
+  color: #38bdf8;
+}
+
+/* Hero Section Styles */
+.neural-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.hero-ai-glass {
+  border-radius: 50%;
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
+  box-shadow: 0 0 50px rgba(56, 189, 248, 0.4);
+  animation: pulse-glow 4s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 50px rgba(56, 189, 248, 0.4); }
+  100% { box-shadow: 0 0 70px rgba(238, 95, 56, 0.4); filter: brightness(1.1); }
+}
+
+/* Technical Tags */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badge-tech {
+  font-size: 0.8rem;
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  font-family: var(--heading-font);
+}
+
+/* Holographic Skills Bar */
+.skills__field.holographic {
+  background: linear-gradient(90deg, 
+    var(--primary-color) 0%, 
+    var(--secondary-color2) 50%, 
+    var(--primary-color) 100%
+  );
+  background-size: 200% 100%;
+  animation: hologram-flow 3s linear infinite;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+
+.skills__field.holographic::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  transform: skewX(-20deg) translateX(-150%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes hologram-flow {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+@keyframes shimmer {
+  0% { transform: skewX(-20deg) translateX(-150%); }
+  100% { transform: skewX(-20deg) translateX(150%); }
+}
+.services__card.glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* 4. Experience Cards: Premium Glass */
+.resume__content {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.resume__content:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateX(10px);
+    border-color: rgba(56, 189, 248, 0.3);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.resume__content::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 4px; height: 100%;
+    background: linear-gradient(to bottom, #38bdf8, #f472b6);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.resume__content:hover::before {
+    opacity: 1;
+}
+
+/* 5. Tech Pills: Expensive Look */
+.badge-tech {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    margin: 0.3rem;
+    border-radius: 50px;
+    font-size: 1rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    color: #e2e8f0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.badge-tech:hover {
+    border-color: #38bdf8;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+/* 6. Typography Refinement */
+.hero__content--title {
+    letter-spacing: -1px;
+    line-height: 1.2 !important;
+}
+
+.section__heading--title {
+    letter-spacing: -0.5px;
+}
+
+/* Mobile Header Fix for Small Screens */
+@media (max-width: 480px) {
+    .header__sticky.sticky, 
+    .header__sticky {
+        width: 92% !important;
+        padding: 0 1rem !important;
+    }
+}
+
+/* =========================================
+   SPRINT 4.5: FUTURISTIC CYBERPUNK UPGRADE
+   ========================================= */
+
+/* 1. Services: The Hologram Cards */
+.services__card.glass {
+  background: rgba(10, 10, 18, 0.6) !important; /* Deep Void Dark */
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.services__card.glass:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 
+    0 0 30px rgba(56, 189, 248, 0.2),
+    inset 0 0 20px rgba(56, 189, 248, 0.05); /* Internal Glow */
+}
+
+/* The "Scanning" Border Effect */
+.services__card.glass::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+  animation: scan-line 3s linear infinite;
+  opacity: 0;
+}
+.services__card.glass:hover::after {
+  opacity: 1;
+}
+
+@keyframes scan-line {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Futuristic Titles */
+.services__card--title {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.5px;
+  background: -webkit-linear-gradient(45deg, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.services__card:hover .services__card--title {
+  background: -webkit-linear-gradient(45deg, #fff, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+/* Icon Containers: Glowing Orbs */
+.services__card--icon {
+  background: rgba(56, 189, 248, 0.05);
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  border-radius: 12px;
+  position: relative;
+  z-index: 1;
+}
+.services__card:hover .services__card--icon {
+  background: rgba(56, 189, 248, 0.1);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+  transform: rotateY(180deg);
+  transition: transform 0.6s ease;
+}
+
+/* 2. "Hire Me" Button: The Cyber Switch */
+.about__btn.primary__btn {
+  background: transparent !important;
+  border: 1px solid #38bdf8 !important;
+  color: #38bdf8 !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2), inset 0 0 0 rgba(56, 189, 248, 0);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.about__btn.primary__btn:hover {
+  color: #0f172a !important;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.6), inset 0 0 20px rgba(56, 189, 248, 0.4);
+  text-shadow: none;
+  border-color: #38bdf8 !important;
+}
+
+.about__btn.primary__btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 0%; height: 100%;
+  background: #38bdf8;
+  z-index: -1;
+  transition: width 0.3s ease;
+}
+.about__btn.primary__btn:hover::before {
+  width: 100%;
+}
+
+/* 3. Global Section Titles */
+.section__heading--subtitle {
+  color: #38bdf8 !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+.section__heading--title {
+   font-family: 'Space Grotesk', sans-serif;
+   font-weight: 700;
+}
+
+/* =========================================
+   SPRINT 6: THE CYBER PORTAL (ABOUT IMAGE)
+   ========================================= */
+
+/* 1. The Image Container (Holographic Frame) */
+.about__thumbnail--media {
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.3); /* Thin cyber border */
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+/* Neon Glow behind the image */
+.about__thumbnail--media::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  background: linear-gradient(45deg, #38bdf8, #f472b6, #38bdf8);
+  z-index: -1;
+  filter: blur(20px);
+  opacity: 0.5;
+  animation: portal-spin 8s linear infinite;
+}
+
+@keyframes portal-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.about__thumbnail--media img {
+  border-radius: 20px;
+  position: relative;
+  z-index: 2;
+  filter: contrast(1.1) brightness(1.1);
+  transition: transform 0.5s ease;
+}
+
+.about__thumbnail--media:hover img {
+  transform: scale(1.05);
+}
+
+/* 2. The Experience Badge (Futuristic Seal) */
+.about__experience {
+  position: absolute;
+  bottom: -3rem;
+  right: -2rem;
+  background: rgba(15, 23, 42, 0.85); /* Dark Glass */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(56, 189, 248, 0.2),
+    inset 0 0 10px rgba(56, 189, 248, 0.1);
+  z-index: 3;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: float-badge 6s ease-in-out infinite;
+}
+
+/* Rotating Ring around badge */
+.about__experience::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 2px dashed rgba(56, 189, 248, 0.3);
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.about__experience--title {
+  font-size: 4rem;
+  line-height: 1;
+  font-weight: 800;
+  background: linear-gradient(to bottom, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.about__experience--subtitle {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+/* =========================================
+   SPRINT 5: THE FLOW & INFINITE STREAM
+   ========================================= */
+
+/* 1. Infinite Tech Stream */
+.tech-stream-wrapper {
+  background: #0f172a; /* Match body bg */
+  overflow: hidden;
+  padding: 4rem 0;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: -2rem; /* Pull up to reduce gap */
+}
+
+/* Vignette Mask for fade out edges */
+.tech-stream-wrapper::before,
+.tech-stream-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 15rem;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.tech-stream-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #0f172a, transparent);
+}
+.tech-stream-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #0f172a, transparent);
+}
+
+.tech-stream-track {
+  display: flex;
+  width: calc(30rem * 12); /* Approximate width calculation */
+  animation: scroll-stream 40s linear infinite;
+  gap: 6rem;
+}
+
+.tech-stream-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.tech-stream-item:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.1);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.tech-stream-item img {
+  height: 3.5rem;
+  width: auto;
+  object-fit: contain;
+}
+
+.tech-stream-item span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+@keyframes scroll-stream {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-30rem * 6)); } /* Adjust based on set count */
+}
+
+/* 2. ZigZag Fix (Vertical Rhythm) */
+.about__section.section--padding {
+  padding-bottom: 2rem !important; /* Reduce bottom padding */
+}
+
+.resume__section {
+  padding-top: 4rem !important;
+}
+
+/* 3. Smooth Entrance (Auto-reveal with Staggered Delay) */
+.section__heading {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+.about__content {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.services__card {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.portfolio__card {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.resume__items {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+.skills__items {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   TEXT LOGO STYLES
+   ========================================= */
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none !important;
+}
+
+.logo-monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, #38bdf8, #818cf8);
+  border-radius: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+.logo-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a; /* Default: dark text for light mode */
+  letter-spacing: -0.5px;
+}
+
+.logo-accent {
+  color: #38bdf8;
+  margin-left: 0.25rem;
+}
+
+/* Dark Mode Override - html element gets .dark class */
+.dark .logo-text {
+  color: #fff;
+}
+
+/* =========================================
+   DESIGN CLEANUP - PERFORMANCE & READABILITY
+   ========================================= */
+
+/* Fix Skills Section - Percentage badges overlapping text */
+.skills__items > div:first-child {
+  position: relative;
+  padding-right: 70px; /* Make room for the badge */
+}
+
+.skills__items > div:first-child > span:first-child {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  white-space: nowrap;
+  overflow: visible; /* Prevent text cutoff */
+}
+
+.skills__count {
+  position: absolute !important;
+  right: 0 !important;
+  left: auto !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+/* Better Typography - Bolder & More Readable */
+.hero__content--title {
+  font-size: clamp(2.5rem, 6vw, 4rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -1px;
+  line-height: 1.1 !important;
+}
+
+.hero__content--text {
+  font-size: 1.125rem !important;
+  line-height: 1.7 !important;
+  max-width: 600px;
+}
+
+.section__title {
+  font-weight: 800 !important;
+  font-size: clamp(2rem, 4vw, 2.5rem) !important;
+  letter-spacing: -0.5px;
+}
+
+/* Clean Service Cards - Remove heavy glass effects */
+.services__card {
+  background: rgba(30, 41, 59, 0.8) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.services__card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+}
+
+/* Light Mode Service Cards */
+:root:not(.dark) .services__card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+:root:not(.dark) .services__card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Remove Heavy Animations - Keep it Simple */
+.services__card::before,
+.services__card::after {
+  display: none !important;
+}
+
+/* Portfolio Cards - Simpler hover */
+.portfolio__card {
+  transition: transform 0.3s ease !important;
+}
+
+.portfolio__card:hover {
+  transform: translateY(-3px) !important;
+}
+
+/* Disable blur filters on portfolio hover */
+.portfolio-container-hover:hover .element-item {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Remove marquee animation (tech stream) - static is faster */
+.tech-stream-track {
+  animation: none !important;
+}
+
+/* Clean sticky header - simpler blur */
+.header__sticky {
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  background: rgba(15, 23, 42, 0.85) !important;
+}
+
+:root:not(.dark) .header__sticky {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Remove neural particles canvas leftover */
+#neural-bg,
+#neural-canvas,
+.neural-container,
+.neural-canvas,
+canvas[id*="neural"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Remove pulse animation from hero image for performance */
+.hero-ai-glass {
+  animation: none !important;
+}
+
+/* Remove 3D neural background images completely - CLEAN LOOK */
+.hero__section--bg,
+.dark .hero__section--bg {
+  background: none !important;
+  background-image: none !important;
+}
+
+/* Simple, clean section backgrounds */
+.about__section--bg {
+  background-image: none !important;
+}
+
+.contact__section--bg {
+  background-image: none !important;
+  background: var(--body-background-color) !important;
+}
+
+.footer__bg {
+  background-image: none !important;
+}
