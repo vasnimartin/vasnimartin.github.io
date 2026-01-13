@@ -1,9 +1,50 @@
 
 /* Utility Classes for 2026 Design */
+
+/* Icon sizing utilities */
+.icon-sm {
+  width: 50px;
+  height: auto;
+}
+
+/* Hero subtitle tertiary style */
+.hero__content--subtitle3 {
+  font-size: 1.6rem;
+  opacity: 0.85;
+}
+
+/* CTA highlight text */
+.cta-highlight {
+  display: block;
+  margin-top: 1rem;
+  color: #38bdf8;
+}
+
+/* Responsive image utility */
+.img-fluid-full {
+  width: 100%;
+  height: auto;
+}
+
+/* Invert filter for dark icons */
+.filter-invert {
+  filter: invert(1);
+}
+
+/* Iframe border reset */
+.iframe-borderless {
+  border: 0;
+}
+
+/* Modal hidden state */
+.modal-hidden {
+  display: none;
+}
+
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
   border: var(--glass-border);
 }
 
@@ -22,8 +63,8 @@
 /* Glassmorphism Card Styles */
 .services__card.glass {
   background: rgba(255, 255, 255, 0.03); /* Extremely subtle bg for dark mode feel */
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.05); /* Very thin border */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy spring feel */
@@ -44,6 +85,7 @@
   padding: 1px;
   background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
@@ -149,8 +191,8 @@
 /* Futuristic HUD Modal */
 .modal-content.glass-hud {
   background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(56, 189, 248, 0.3);
   box-shadow: 0 0 50px rgba(56, 189, 248, 0.15);
   color: #fff;
@@ -213,8 +255,8 @@
 /* Dark Mode Glass Polish */
 .dark .services__card.glass {
   background: rgba(15, 23, 42, 0.6); /* Slightly more opaque */
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -254,6 +296,7 @@
 .social__share--link[aria-label="Twitter/X"]:hover svg { color: #fff; filter: drop-shadow(0 0 5px #fff); }
 .social__share--link[aria-label="Instagram"]:hover svg { color: #E1306C; filter: drop-shadow(0 0 5px #E1306C); }
 .social__share--link[aria-label="GitHub"]:hover svg { color: #6e5494; filter: drop-shadow(0 0 5px #6e5494); }
+.social__share--link[aria-label="Figma"]:hover svg { color: #F24E1E; filter: drop-shadow(0 0 5px #F24E1E); }
 
 .hero__content--subtitle2 {
     font-weight: 500;
@@ -272,8 +315,8 @@
     border-radius: 50px !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
     background: rgba(15, 23, 42, 0.7) !important; /* Deep Premium Dark */
-    backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
+    backdrop-filter: blur(20px) !important;
     box-shadow: 
         0 4px 30px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.1) !important; /* Top Light Edge */
@@ -464,8 +507,8 @@
 /* 4. Experience Cards: Premium Glass */
 .resume__content {
     background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     padding: 2.5rem;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -585,12 +628,14 @@
   letter-spacing: -0.5px;
   background: -webkit-linear-gradient(45deg, #fff, #94a3b8);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .services__card:hover .services__card--title {
   background: -webkit-linear-gradient(45deg, #fff, #38bdf8);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
 }
@@ -704,8 +749,8 @@
   bottom: -3rem;
   right: -2rem;
   background: rgba(15, 23, 42, 0.85); /* Dark Glass */
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   padding: 2rem;
   border-radius: 50%;
   border: 1px solid rgba(56, 189, 248, 0.3);
@@ -749,6 +794,7 @@
   font-weight: 800;
   background: linear-gradient(to bottom, #fff, #94a3b8);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.5rem;
   font-family: 'Space Grotesk', sans-serif;
@@ -939,6 +985,19 @@
    ========================================= */
 
 /* Fix Skills Section - Percentage badges overlapping text */
+.skills__section {
+  overflow: hidden; /* Contain all child elements */
+}
+
+.skills__step {
+  overflow: hidden;
+}
+
+.skills__items {
+  overflow: hidden;
+  position: relative;
+}
+
 .skills__items > div:first-child {
   position: relative;
   padding-right: 70px; /* Make room for the badge */
@@ -950,6 +1009,11 @@
   color: var(--heading-color);
   white-space: nowrap;
   overflow: visible; /* Prevent text cutoff */
+}
+
+.skills__field {
+  position: relative !important;
+  overflow: hidden;
 }
 
 .skills__count {
@@ -983,8 +1047,8 @@
 /* Clean Service Cards - Remove heavy glass effects */
 .services__card {
   background: rgba(30, 41, 59, 0.8) !important;
-  backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
@@ -1033,8 +1097,8 @@
 
 /* Clean sticky header - simpler blur */
 .header__sticky {
-  backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
   background: rgba(15, 23, 42, 0.85) !important;
 }
 
@@ -1234,4 +1298,18 @@ canvas[id*="neural"] {
   text-transform: uppercase;
   letter-spacing: 2px;
   opacity: 0.7;
+}
+
+/* =========================================
+   About Section Description
+   ========================================= */
+.about__description {
+  font-size: 1.1rem;
+  color: var(--text-paragraph);
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
+.about__description.mt-15 {
+  margin-top: 0.9375rem;
 }

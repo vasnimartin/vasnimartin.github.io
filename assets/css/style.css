@@ -112,11 +112,11 @@ body {
 }
 
 [data-aos=fade-up] {
-  transform: translate3d(0, 40px, 0);
   -webkit-transform: translate3d(0, 40px, 0);
   -moz-transform: translate3d(0, 40px, 0);
   -ms-transform: translate3d(0, 40px, 0);
   -o-transform: translate3d(0, 40px, 0);
+  transform: translate3d(0, 40px, 0);
 }
 
 .tooltip {
@@ -730,8 +730,8 @@ hr {
 
 .header__sticky {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin: 0 auto;
   border-radius: 50px;
@@ -849,7 +849,7 @@ hr {
   display: block;
   width: 100%;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  /* -webkit-overflow-scrolling removed - deprecated and unsupported in modern browsers */
 }
 
 .border__top--bottom {
@@ -888,11 +888,11 @@ select {
   -webkit-transform-origin: 66% 66%;
           transform-origin: 66% 66%;
   opacity: 0.7;
-  transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .section__heading--subtitle {
@@ -1250,10 +1250,10 @@ body.overlay__active::before,
   to {
     opacity: 1;
     -webkit-transform: translateZ(0);
-    transform: translateZ(0);
     -moz-transform: translateZ(0);
     -ms-transform: translateZ(0);
     -o-transform: translateZ(0);
+    transform: translateZ(0);
   }
 }
 
@@ -2517,11 +2517,11 @@ input[type=number]::-webkit-outer-spin-button {
   }
 }
 .hero__profile--thumbnail__media{
-  border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  border-radius: 50%;
 }
 .hero__thumbnail {
   width: 100%;
@@ -2897,11 +2897,11 @@ input[type=number]::-webkit-outer-spin-button {
             transform: translateY(0px);
   }
   50% {
-    transform: translateY(-22px);
     -webkit-transform: translateY(-22px);
     -moz-transform: translateY(-22px);
     -ms-transform: translateY(-22px);
     -o-transform: translateY(-22px);
+    transform: translateY(-22px);
   }
   100% {
     -webkit-transform: translateY(0px);
@@ -2915,11 +2915,11 @@ input[type=number]::-webkit-outer-spin-button {
             transform: translateY(0px);
   }
   50% {
-    transform: translateY(-22px);
     -webkit-transform: translateY(-22px);
     -moz-transform: translateY(-22px);
     -ms-transform: translateY(-22px);
     -o-transform: translateY(-22px);
+    transform: translateY(-22px);
   }
   100% {
     -webkit-transform: translateY(0px);
